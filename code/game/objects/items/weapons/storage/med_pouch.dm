@@ -18,12 +18,11 @@ Single Use Emergency Pouches
 	var/instructions = {"
 	1) Tear open the emergency medical pack using the easy open tab at the top.\n\
 	\t2) Carefully remove all items from the pouch and discard the pouch.\n\
-	\t3) Apply all autoinjectors to the injured party.\n\
-	\t4) Use bandages to stop bleeding if required.\n\
-	\t5) Force the injured party to swallow all pills.\n\
-	\t6) Use ointment on any burns if required\n\
-	\t7) Contact the medical team with your location.
-	8) Stay in place once they respond.\
+	\t3) Administer all autoinjectors to the injured party.\n\
+	\t4) Stop any bleeding wounds using gauze bandages.\n\
+	\t5) Have the injured party swallow all pills.\n\
+	\t6) Use ointment on any burns if required.\n\
+	7) Contact first responders with your location and remain in place unless told to relocate.\
 		"}
 
 /obj/item/storage/med_pouch/Initialize()
@@ -71,18 +70,17 @@ Single Use Emergency Pouches
 
 	startswith = list(
 	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline,
+	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/deletrathol,
 	/obj/item/reagent_containers/pill/pouch_pill/inaprovaline,
-	/obj/item/reagent_containers/pill/pouch_pill/paracetamol,
-	/obj/item/stack/medical/bruise_pack = 2,
+	/obj/item/stack/medical/bruise_pack,
 		)
 	instructions = {"
 	1) Tear open the emergency medical pack using the easy open tab at the top.\n\
 	\t2) Carefully remove all items from the pouch and discard the pouch.\n\
-	\t3) Apply all autoinjectors to the injured party.\n\
-	\t4) Use bandages to stop bleeding if required.\n\
-	\t5) Force the injured party to swallow all pills.\n\
-	\t6) Contact the medical team with your location.
-	7) Stay in place once they respond.\
+	\t3) Administer all autoinjectors to the injured party.\n\
+	\t4) Stop any bleeding wounds using gauze bandages.\n\
+	\t5) Have the injured party swallow all pills.\n\
+	6) Contact first responders with your location and remain in place unless told to relocate.\
 		"}
 
 /obj/item/storage/med_pouch/burn
@@ -94,18 +92,15 @@ Single Use Emergency Pouches
 	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline,
 	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/deletrathol,
 	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline,
-	/obj/item/reagent_containers/pill/pouch_pill/paracetamol,
-	/obj/item/stack/medical/ointment = 2,
+	/obj/item/stack/medical/ointment,
 		)
 	instructions = {"
 	1) Tear open the emergency medical pack using the easy open tab at the top.\n\
 	\t2) Carefully remove all items from the pouch and discard the pouch.\n\
-	\t3) Apply the emergency deletrathol autoinjector to the injured party.\n\
-	\t4) Apply all remaining autoinjectors to the injured party.\n\
-	\t5) Force the injured party to swallow all pills.\n\
-	\t6) Use ointment on any burns if required\n\
-	\t7) Contact the medical team with your location.
-	8) Stay in place once they respond.\
+	\t3) Administer all autoinjectors to the injured party.\n\
+	\t4) Have the injured party swallow all pills.\n\
+	\t5) Use ointment on any burns if required.\n\
+	6) Contact first responders with your location and remain in place unless told to relocate.\
 		"}
 
 /obj/item/storage/med_pouch/oxyloss
@@ -121,14 +116,12 @@ Single Use Emergency Pouches
 	/obj/item/reagent_containers/pill/pouch_pill/dexalin,
 		)
 	instructions = {"
-	1) Tear open the emergency medical pack using the easy open tab at the top.\n\
-	\t2) Carefully remove all items from the pouch and discard the pouch.\n\
-	\t3) Apply all autoinjectors to the injured party.\n\
-	\t4) Force the injured party to swallow all pills.\n\
-	\t5) Contact the medical team with your location.\n\
-	\t6) Find a source of oxygen if possible.\n\
-	\t7) Update the medical team with your new location.\n\
-	8) Stay in place once they respond.\
+	1) Find a source of oxygen if possible.\n\
+	\t2) Tear open the emergency medical pack using the easy open tab at the top.\n\
+	\t3) Carefully remove all items from the pouch and discard the pouch.\n\
+	\t4) Administer all autoinjectors to the injured party.\n\
+	\t5) Have the injured party swallow all pills.\n\
+	6) Contact first responders with your location and remain in place unless told to relocate.\
 		"}
 
 /obj/item/storage/med_pouch/toxin
@@ -143,10 +136,9 @@ Single Use Emergency Pouches
 	instructions = {"
 	1) Tear open the emergency medical pack using the easy open tab at the top.\n\
 	\t2) Carefully remove all items from the pouch and discard the pouch.\n\
-	\t3) Apply all autoinjectors to the injured party.\n\
-	\t4) Force the injured party to swallow all pills.\n\
-	\t5) Contact the medical team with your location.
-	6) Stay in place once they respond.\
+	\t3) Administer all autoinjectors to the injured party.\n\
+	\t4) Have the injured party swallow all pills.\n\
+	5) Contact first responders with your location and remain in place unless told to relocate.\
 		"}
 
 /obj/item/storage/med_pouch/radiation
@@ -157,14 +149,14 @@ Single Use Emergency Pouches
 	startswith = list(
 	/obj/item/reagent_containers/hypospray/autoinjector/antirad,
 	/obj/item/reagent_containers/pill/pouch_pill/dylovene,
+	/obj/item/reagent_containers/pill/pouch_pill/paracetamol,
 		)
 	instructions = {"
 	1) Tear open the emergency medical pack using the easy open tab at the top.\n\
 	\t2) Carefully remove all items from the pouch and discard the pouch.\n\
-	\t3) Apply all autoinjectors to the injured party.\n\
-	\t4) Force the injured party to swallow all pills.\n\
-	\t5) Contact the medical team with your location.
-	6) Stay in place once they respond.\
+	\t3) Administer all autoinjectors to the injured party.\n\
+	\t4) Have the injured party swallow all pills.\n\
+	5) Contact first responders with your location and remain in place unless told to relocate.\
 		"}
 
 /obj/item/reagent_containers/pill/pouch_pill
