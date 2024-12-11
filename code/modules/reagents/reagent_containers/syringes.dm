@@ -13,7 +13,7 @@
 	icon_state = "rg"
 	matter = list(MATERIAL_GLASS = 150)
 	amount_per_transfer_from_this = 5
-	possible_transfer_amounts = "1;2;5"
+	possible_transfer_amounts = "1;2;5;10;15"
 	volume = 15
 	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS
@@ -414,7 +414,7 @@
 /obj/item/reagent_containers/syringe/bluespace
 	name = "bluespace syringe"
 	desc = "An advanced syringe that can hold 60 units of chemicals."
-	amount_per_transfer_from_this = 20
+	amount_per_transfer_from_this = 15
 	volume = 60
 	icon_state = "bs"
 
