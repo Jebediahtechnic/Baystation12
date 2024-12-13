@@ -415,6 +415,7 @@
 	name = "bluespace syringe"
 	desc = "An advanced syringe that can hold 60 units of chemicals."
 	amount_per_transfer_from_this = 20
+	possible_transfer_amounts = "1;2;5;10;15;20"
 	volume = 60
 	icon_state = "bs"
 
