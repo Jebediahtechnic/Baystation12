@@ -19,10 +19,10 @@ Single Use Emergency Pouches
 	1) Tear open the emergency medical pack using the easy open tab at the top.\n\
 	\t2) Carefully remove all items from the pouch and discard the pouch.\n\
 	\t3) Administer all autoinjectors to the injured party.\n\
-	\t4) Stop any bleeding wounds using gauze bandages.\n\
+	\t4) Prioritizing severe bleeds first, stop bleeding using gauze bandages.\n\
 	\t5) Have the injured party swallow all pills.\n\
-	\t6) Use ointment on any burns if required.\n\
-	7) Contact first responders with your location and remain in place unless told to relocate.\
+	\t6) Apply ointment on burns, prioritizing larger burns first.\n\
+	7) Notify first responders with your location and await further instructions. Do not administer another emergency pouch unless five minutes have passed or as instructed by first responders.\
 		"}
 
 /obj/item/storage/med_pouch/Initialize()
@@ -78,9 +78,9 @@ Single Use Emergency Pouches
 	1) Tear open the emergency medical pack using the easy open tab at the top.\n\
 	\t2) Carefully remove all items from the pouch and discard the pouch.\n\
 	\t3) Administer all autoinjectors to the injured party.\n\
-	\t4) Stop any bleeding wounds using gauze bandages.\n\
+	\t4) Prioritizing severe bleeds first, stop bleeding using gauze bandages.\n\
 	\t5) Have the injured party swallow all pills.\n\
-	6) Contact first responders with your location and remain in place unless told to relocate.\
+	6) Notify first responders with your location and await further instructions. Do not administer another emergency pouch unless five minutes have passed or as instructed by first responders.\
 		"}
 
 /obj/item/storage/med_pouch/burn
@@ -97,10 +97,10 @@ Single Use Emergency Pouches
 	instructions = {"
 	1) Tear open the emergency medical pack using the easy open tab at the top.\n\
 	\t2) Carefully remove all items from the pouch and discard the pouch.\n\
-	\t3) Administer all autoinjectors to the injured party.\n\
+	\t3) Administer all autoinjectors to the injured party. WARNING: DO NOT administer adrenaline if patient is conscious. DO NOT RE-ADMINISTER ADRENALINE UNLESS INSTRUCTED TO BY FIRST RESPONDERS.\n\
 	\t4) Have the injured party swallow all pills.\n\
-	\t5) Use ointment on any burns if required.\n\
-	6) Contact first responders with your location and remain in place unless told to relocate.\
+	\t5) Apply ointment on burns, prioritizing larger burns first.\n\
+	6) Notify first responders with your location and await further instructions. Do not administer another emergency pouch unless five minutes have passed or as instructed by first responders.\
 		"}
 
 /obj/item/storage/med_pouch/oxyloss
@@ -121,7 +121,7 @@ Single Use Emergency Pouches
 	\t3) Carefully remove all items from the pouch and discard the pouch.\n\
 	\t4) Administer all autoinjectors to the injured party.\n\
 	\t5) Have the injured party swallow all pills.\n\
-	6) Contact first responders with your location and remain in place unless told to relocate.\
+	6) Notify first responders with your location and await further instructions. Do not administer another emergency pouch unless five minutes have passed or as instructed by first responders.\
 		"}
 
 /obj/item/storage/med_pouch/toxin
@@ -138,7 +138,7 @@ Single Use Emergency Pouches
 	\t2) Carefully remove all items from the pouch and discard the pouch.\n\
 	\t3) Administer all autoinjectors to the injured party.\n\
 	\t4) Have the injured party swallow all pills.\n\
-	5) Contact first responders with your location and remain in place unless told to relocate.\
+	5) Notify first responders with your location and await further instructions. Do not administer another emergency pouch unless five minutes have passed or as instructed by first responders.\
 		"}
 
 /obj/item/storage/med_pouch/radiation
@@ -156,7 +156,7 @@ Single Use Emergency Pouches
 	\t2) Carefully remove all items from the pouch and discard the pouch.\n\
 	\t3) Administer all autoinjectors to the injured party.\n\
 	\t4) Have the injured party swallow all pills.\n\
-	5) Contact first responders with your location and remain in place unless told to relocate.\
+	5) Notify first responders with your location and await further instructions. Do not administer another emergency pouch unless five minutes have passed or as instructed by first responders.\
 		"}
 
 /obj/item/reagent_containers/pill/pouch_pill
