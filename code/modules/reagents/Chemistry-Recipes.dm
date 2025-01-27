@@ -343,8 +343,8 @@
 	result = /datum/reagent/toxin/zombiepowder
 	required_reagents = list(/datum/reagent/toxin/carpotoxin = 5, /datum/reagent/soporific = 5, /datum/reagent/copper = 5)
 	result_amount = 2
-	minimum_temperature = 90 CELSIUS
-	maximum_temperature = 99 CELSIUS
+	minimum_temperature = 80 CELSIUS
+	maximum_temperature = 89 CELSIUS
 	mix_message = "The solution boils off to form a fine powder."
 
 /singleton/reaction/mindbreaker

@@ -26,13 +26,13 @@
 	var/list/permitted_types = list(/obj/item/reagent_containers/glass)
 	var/max_temperature =      200 CELSIUS
 	var/min_temperature =      -100  CELSIUS
-	var/heating_power =        10 // K
+	var/heating_power =        20 // K
 	var/last_temperature
 	var/target_temperature
 	var/obj/item/container
 
 /obj/machinery/reagent_temperature/Initialize()
-	target_temperature = 50 CELSIUS
+	target_temperature = 40 CELSIUS
 	. = ..()
 
 /obj/machinery/reagent_temperature/Destroy()
