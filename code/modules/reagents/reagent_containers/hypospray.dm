@@ -105,11 +105,6 @@
 	single_use = FALSE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 
-/obj/item/reagent_containers/hypospray/vial/use_after(obj/target, mob/living/user, click_parameters)
-	if(istype(target, /obj/structure/closet/body_bag))
-		handleBodyBag(target, user)
-		return TRUE
-
 /obj/item/reagent_containers/hypospray/vial/New()
 	..()
 	loaded_vial = new /obj/item/reagent_containers/glass/beaker/vial(src)
@@ -163,26 +158,29 @@
 		return TRUE
 	return ..()
 
-/obj/item/reagent_containers/hypospray/vial/use_after(obj/target, mob/living/user, click_parameters) // hyposprays can be dumped into, why not out? uses standard_pour_into helper checks.
-	if (!reagents.total_volume && istype(target, /obj/item/reagent_containers/glass))
-		var/good_target = is_type_in_list(target, list(
-			/obj/item/reagent_containers/glass/beaker,
-			/obj/item/reagent_containers/glass/bottle
-		))
-		if (!good_target)
-			return
-		if (!target.is_open_container())
-			to_chat(user, SPAN_ITALIC("\The [target] is closed."))
-			return TRUE
-		if (!target.reagents?.total_volume)
-			to_chat(user, SPAN_ITALIC("\The [target] is empty."))
-			return TRUE
-		var/trans = target.reagents.trans_to_obj(src, amount_per_transfer_from_this)
-		to_chat(user, SPAN_NOTICE("You fill \the [src] with [trans] units of the solution."))
-		return TRUE
-	else
-		standard_pour_into(user, target)
-		return TRUE
+/obj/item/reagent_containers/hypospray/vial/use_after(obj/target, mob/living/user, click_parameters) // // hyposprays can be dumped into, why not out? uses standard_pour_into helper checks. Hyposprays can also inject through bags
+    if (istype(target, /obj/structure/closet/body_bag))
+        handleBodyBag(target, user)
+        return TRUE
+    else if (!reagents.total_volume && istype(target, /obj/item/reagent_containers/glass))
+        var/good_target = is_type_in_list(target, list(
+            /obj/item/reagent_containers/glass/beaker,
+            /obj/item/reagent_containers/glass/bottle
+        ))
+        if (!good_target)
+            return
+        if (!target.is_open_container())
+            to_chat(user, SPAN_ITALIC("\The [target] is closed."))
+            return TRUE
+        if (!target.reagents?.total_volume)
+            to_chat(user, SPAN_ITALIC("\The [target] is empty."))
+            return TRUE
+        var/trans = target.reagents.trans_to_obj(src, amount_per_transfer_from_this)
+        to_chat(user, SPAN_NOTICE("You fill \the [src] with [trans] units of the solution."))
+        return TRUE
+    else
+        standard_pour_into(user, target)
+        return TRUE
 
 /obj/item/reagent_containers/hypospray/vial/handleBodyBag(obj/structure/closet/body_bag/bag, mob/living/carbon/user)
 	if(bag.opened || !bag.contains_body)
