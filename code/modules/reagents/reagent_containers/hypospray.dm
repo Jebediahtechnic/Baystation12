@@ -77,6 +77,22 @@
 		to_chat(user, SPAN_NOTICE("[trans] units injected. [reagents.total_volume] units remaining in \the [src]."))
 	return TRUE
 
+/obj/item/reagent_containers/hypospray/use_after(obj/target, mob/living/user, click_parameters)
+	if(istype(target, /obj/structure/closet/body_bag))
+		handleBodyBag(target, user)
+		return TRUE
+
+	if(!target.reagents)
+		return FALSE
+
+/obj/item/reagent_containers/hypospray/proc/handleBodyBag(obj/structure/closet/body_bag/bag, mob/living/carbon/user)
+	if(bag.opened || !bag.contains_body)
+		return
+
+	var/mob/living/L = locate() in bag
+	if(L)
+		use_before(L, user, bag)
+
 /obj/item/reagent_containers/hypospray/vial
 	name = "hypospray"
 	item_state = "autoinjector"
@@ -88,6 +104,11 @@
 	time = 7
 	single_use = FALSE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
+
+/obj/item/reagent_containers/hypospray/vial/use_after(obj/target, mob/living/user, click_parameters)
+	if(istype(target, /obj/structure/closet/body_bag))
+		handleBodyBag(target, user)
+		return TRUE
 
 /obj/item/reagent_containers/hypospray/vial/New()
 	..()
@@ -162,6 +183,14 @@
 	else
 		standard_pour_into(user, target)
 		return TRUE
+
+/obj/item/reagent_containers/hypospray/vial/handleBodyBag(obj/structure/closet/body_bag/bag, mob/living/carbon/user)
+	if(bag.opened || !bag.contains_body)
+		return
+
+	var/mob/living/L = locate() in bag
+	if(L)
+		use_before(L, user, bag)
 
 /obj/item/reagent_containers/hypospray/autoinjector
 	name = "autoinjector"
