@@ -77,6 +77,28 @@
 		to_chat(user, SPAN_NOTICE("[trans] units injected. [reagents.total_volume] units remaining in \the [src]."))
 	return TRUE
 
+/obj/item/reagent_containers/hypospray/use_after(obj/target, mob/living/user, click_parameters)
+	if(istype(target, /obj/structure/closet/body_bag))
+		handleBodyBag(target, user)
+		return TRUE
+
+	if(!target.reagents)
+		return FALSE
+
+/obj/item/reagent_containers/hypospray/proc/handleBodyBag(obj/structure/closet/body_bag/bag, mob/living/carbon/user)
+	if (bag.opened)
+		USE_FEEDBACK_FAILURE("You cannot inject \the [src] while it is open.")
+		return
+	if (!bag.contains_body)
+		USE_FEEDBACK_FAILURE("\The [src] has nobody inside to inject.")
+		return
+
+	var/mob/living/L = locate() in bag
+	if (!L)
+		USE_FEEDBACK_FAILURE("\The [src] has nobody inside to inject.")
+		return
+	use_before(L, user, bag)
+
 /obj/item/reagent_containers/hypospray/vial
 	name = "hypospray"
 	item_state = "autoinjector"
@@ -142,7 +164,10 @@
 		return TRUE
 	return ..()
 
-/obj/item/reagent_containers/hypospray/vial/use_after(obj/target, mob/living/user, click_parameters) // hyposprays can be dumped into, why not out? uses standard_pour_into helper checks.
+/obj/item/reagent_containers/hypospray/vial/use_after(obj/target, mob/living/user, click_parameters) // // hyposprays can be dumped into, why not out? uses standard_pour_into helper checks. Hyposprays can also inject through bags
+	if (istype(target, /obj/structure/closet/body_bag))
+		return ..()
+
 	if (!reagents.total_volume && istype(target, /obj/item/reagent_containers/glass))
 		var/good_target = is_type_in_list(target, list(
 			/obj/item/reagent_containers/glass/beaker,
