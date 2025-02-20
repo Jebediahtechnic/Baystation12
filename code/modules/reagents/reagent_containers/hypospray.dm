@@ -29,8 +29,6 @@
 	var/single_use = TRUE // autoinjectors are not refillable (overriden for hypospray)
 
 /obj/item/reagent_containers/hypospray/proc/inject_body_bag(obj/structure/closet/body_bag/bag, mob/user)
-	if(bag.opened || !bag.contains_body)
-		return FALSE
 	var/mob/living/L = locate() in bag
 	if(L)
 		return inject_mob(L, user)
@@ -78,6 +76,10 @@
 	return TRUE
 
 /obj/item/reagent_containers/hypospray/use_before(target, mob/user)
+	if(istype(target, /obj/structure/closet/body_bag))
+		if(!bag.contains_body)
+		to_chat(user, SPAN_NOTICE("\The [bag] is empty."))
+		return FALSE
 	if(istype(target, /obj/structure/closet/body_bag))
 		if (!reagents.total_volume)
 			to_chat(user, SPAN_WARNING("[src] is empty."))
